@@ -6,7 +6,7 @@
 /*   By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 05:48:43 by daprovin          #+#    #+#             */
-/*   Updated: 2019/11/22 10:14:23 by daprovin         ###   ########.fr       */
+/*   Updated: 2019/11/22 11:11:30 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct	s_form
 {
 	unsigned int	flag;
 	int				prec;
-	int				justif;
+	int				just;
 	char			type;
 }				t_form;
 

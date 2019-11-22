@@ -45,6 +45,6 @@ int main()
 	else
 		printf("%d", 0);
 */
-	printf("%d", a.prec);
+	printf("%.05d", a.prec);
 	return (0);
 }

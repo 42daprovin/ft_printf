@@ -6,7 +6,7 @@
 /*   By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 21:01:17 by daprovin          #+#    #+#             */
-/*   Updated: 2019/11/22 10:15:31 by daprovin         ###   ########.fr       */
+/*   Updated: 2019/11/22 12:42:48 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,51 @@ static int	ft_isnotthetype(char c)
 
 static void	ft_makevalues(const char **format, t_form *info)
 {
-	
+	int dot;
+
+	info->just = 0;
+	info->prec = 0;
+	dot = 0;
+	while (ft_isnotthetype(**format))
+	{
+		if (**format == '.')
+			dot = 1;
+		if (ft_isdigit(**format))
+		{
+			if (dot == 0)
+			{
+				printf("%s\n", *format);
+				info->just = ft_atoi(*format);
+			}
+			else if (dot == 1)
+				info->prec = ft_atoi(*format);
+			while (ft_isdigit(**format))
+				(*format)++;
+			(*format)--;
+		}
+		(*format)++;
+	}
 }
 
 static int	ft_makeinfo(const char **format, t_form *info)
 {
 	int i;
 
-	i = 0;
-	(*format)++;
+	i = 1;
 	ft_makevalues(format, info);
 	while (ft_isnotthetype(**format))
 	{
 		if (**format == '-')
-			a.flag |= FLAG_MIN;
+			info->flag |= FLAG_MIN;
 		else if (**format == '0')
-			a.flag |= FLAG_ZERO;
+			info->flag |= FLAG_ZERO;
 		else if (**format == '.')
-			a.flag |= FLAG_DOT;
+			info->flag |= FLAG_DOT;
 		else if (**format == '*')
-			a.flag |= FLAG_STAR;
+			info->flag |= FLAG_STAR;
+		i++;
 	}
-
+	info->type = **format;
 	return (i);
 }
 
@@ -63,18 +86,20 @@ int			ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format = format + ft_makeinfo(&format, &info);
+			ft_printtype
 			//primero mirar las flags y despues ver el tipo, cada tipo tendra
-			//su funcion.
+			////su funcion.
 		}
 		ft_putchar_fd(*format, 1);
 		format++;
 	}
+	printf("\n%d\n", info.just);
 	va_end(args);
 	return (0);
 }
 
 int		main()
 {
-	ft_printf("hola %me llamo %david");
+	ft_printf("hola %10d me llamo david");
 	return (0);
 }
