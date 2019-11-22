@@ -1,4 +1,6 @@
 
+#include <stdlib.h>
+#include <unistd.h>
 #include <stdio.h>
 #include "printf.h"
 
@@ -45,6 +47,6 @@ int main()
 	else
 		printf("%d", 0);
 */
-	printf("%.05d", a.prec);
+	printf("%10*c", 2, 'c');
 	return (0);
 }

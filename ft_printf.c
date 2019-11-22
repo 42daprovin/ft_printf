@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 21:01:17 by daprovin          #+#    #+#             */
-/*   Updated: 2019/11/22 12:42:48 by daprovin         ###   ########.fr       */
+/*   Updated: 2019/11/22 16:52:19 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,54 +23,100 @@ static int	ft_isnotthetype(char c)
 	return (1);
 }
 
-static void	ft_makevalues(const char **format, t_form *info)
+static void	ft_makevalues(const char *format, t_form *info)
 {
 	int dot;
 
 	info->just = 0;
 	info->prec = 0;
 	dot = 0;
-	while (ft_isnotthetype(**format))
+	while (ft_isnotthetype(*format))
 	{
-		if (**format == '.')
+		if (*format == '.')
 			dot = 1;
-		if (ft_isdigit(**format))
+		if (ft_isdigit(*format))
 		{
 			if (dot == 0)
-			{
-				printf("%s\n", *format);
-				info->just = ft_atoi(*format);
-			}
+				info->just = ft_atoi(format);
 			else if (dot == 1)
-				info->prec = ft_atoi(*format);
-			while (ft_isdigit(**format))
-				(*format)++;
-			(*format)--;
+				info->prec = ft_atoi(format);
+			while (ft_isdigit(*format))
+				format++;
+			format--;
 		}
-		(*format)++;
+		format++;
 	}
 }
 
-static int	ft_makeinfo(const char **format, t_form *info)
+static int	ft_makeinfo(const char *format, t_form *info)
 {
 	int i;
 
-	i = 1;
+	i = 0;
 	ft_makevalues(format, info);
-	while (ft_isnotthetype(**format))
+	while (ft_isnotthetype(*format))
 	{
-		if (**format == '-')
+		if (*format == '-')
 			info->flag |= FLAG_MIN;
-		else if (**format == '0')
+		else if (*format == '0' && !(ft_isdigit(*(format - 1))))
 			info->flag |= FLAG_ZERO;
-		else if (**format == '.')
+		else if (*format == '.')
 			info->flag |= FLAG_DOT;
-		else if (**format == '*')
+		else if (*format == '*')
 			info->flag |= FLAG_STAR;
+		format++;
 		i++;
 	}
-	info->type = **format;
+	info->type = *format;
 	return (i);
+}
+
+static void ft_doingjust(int just, char c)
+{
+	int i;
+
+	i = 0;
+	while (i < just)
+	{
+		ft_putchar_fd(c, 1);
+		i++;
+	}
+}
+
+static void ft_printchar(t_form *info, va_list args)
+{
+	int just;
+	char c;
+
+	if (info->flag & FLAG_STAR)
+		info->just = va_arg(args, int);
+	c = va_arg(args, int);
+	just = info->just - 1;
+	if (!(info->flag & FLAG_MIN))
+	{
+		ft_doingjust(just, ' ');
+		ft_putchar_fd(c, 1);
+	}
+	if (info->flag & FLAG_MIN)
+	{
+		ft_putchar_fd(c, 1);
+		ft_doingjust(just, ' ');
+	}//estabas por aqui melon, deberias leer las flags del bonus para no tener
+	//que cambiarlo todo despues.
+	//
+	//Asegurate de que las flags no hacen nada raro en ningun orden.
+}
+
+static void	ft_printtype(t_form *info, va_list args)
+{
+	if (info->type == 'c')
+		ft_printchar(info, args);
+	else if (info->type == 's'){}
+	else if (info->type == 'p'){}
+	else if ((info->type == 'd') || (info->type == 'i')){}
+	else if (info->type == 'u'){}
+	else if (info->type == 'x'){}
+	else if (info->type == 'X'){}
 }
 
 int			ft_printf(const char *format, ...)
@@ -85,21 +131,19 @@ int			ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			format = format + ft_makeinfo(&format, &info);
-			ft_printtype
-			//primero mirar las flags y despues ver el tipo, cada tipo tendra
-			////su funcion.
+			format = format + ft_makeinfo(format, &info) + 1;
+			ft_printtype(&info, args);
 		}
 		ft_putchar_fd(*format, 1);
-		format++;
+		if (*format)
+			format++;
 	}
-	printf("\n%d\n", info.just);
 	va_end(args);
 	return (0);
 }
 
 int		main()
 {
-	ft_printf("hola %10d me llamo david");
+	ft_printf(":%10*c:", 10, 'a');
 	return (0);
 }
