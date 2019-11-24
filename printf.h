@@ -6,17 +6,19 @@
 /*   By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 05:48:43 by daprovin          #+#    #+#             */
-/*   Updated: 2019/11/22 11:11:30 by daprovin         ###   ########.fr       */
+/*   Updated: 2019/11/24 20:13:54 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRINTF_H
 # define PRINTF_H
+# include <stdio.h>
+# include <stdarg.h>
 
-# define FLAG_MIN (1<<0)
-# define FLAG_ZERO (1<<1)
-# define FLAG_DOT (1<<2)
-# define FLAG_STAR (1<<3)
+# define FLAG_MIN (1u<<0u)
+# define FLAG_ZERO (1u<<1u)
+# define FLAG_DOT (1u<<2u)
+# define FLAG_STAR (1u<<3u)
 
 typedef struct	s_form
 {
@@ -25,5 +27,11 @@ typedef struct	s_form
 	int				just;
 	char			type;
 }				t_form;
+
+int		ft_isnotthetype(char c);
+int		ft_isnothing(char c);
+void	ft_doingjust(int just, char c);
+void	ft_printchar(t_form *info, va_list args);
+void	ft_printstring(t_form *info, va_list args);
 
 #endif

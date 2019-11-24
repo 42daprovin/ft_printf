@@ -47,6 +47,6 @@ int main()
 	else
 		printf("%d", 0);
 */
-	printf("%10*c", 2, 'c');
+	printf("hola %s", NULL);
 	return (0);
 }
