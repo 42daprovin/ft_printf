@@ -6,7 +6,7 @@
 /*   By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 14:44:14 by daprovin          #+#    #+#             */
-/*   Updated: 2019/11/24 20:09:38 by daprovin         ###   ########.fr       */
+/*   Updated: 2019/11/26 00:15:51 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int		ft_isnotthetype(char c)
 {
 	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' || c == 'u'
-				|| c == 'x' || c == 'X')
+				|| c == 'x' || c == 'X' || c == '%')
 		return (0);
 	return (1);
 }
@@ -25,7 +25,7 @@ int		ft_isnothing(char c)
 {
 	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' || c == 'u'
 				|| c == 'x' || c == 'X' || ft_isdigit(c) || c == '-'
-				|| c == '.' || c == '*')
+				|| c == '.' || c == '*' || c == '%')
 		return (1);
 	return (0);
 }

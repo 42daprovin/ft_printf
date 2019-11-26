@@ -47,6 +47,6 @@ int main()
 	else
 		printf("%d", 0);
 */
-	printf("hola %s", NULL);
+	printf("----->%010k");
 	return (0);
 }

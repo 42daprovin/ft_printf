@@ -6,17 +6,20 @@
 #    By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/19 21:13:16 by daprovin          #+#    #+#              #
-#    Updated: 2019/11/22 10:44:11 by daprovin         ###   ########.fr        #
+#    Updated: 2019/11/26 03:24:16 by daprovin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := libftprintf.a
 
 OBJS := \
-	src/
+	ft_printf.o \
+	ft_printf_utils.o \
+	ft_printf_utils2.o \
 
 GFLAGS := -Wall -Werror -Wextra
-HEAD := libft/libft.h printf.h
+HEAD := libft/
+HEAD2 := libftprintf.h
 
 all: $(NAME)
 
@@ -25,7 +28,7 @@ $(NAME): $(OBJS)
 	cp libft/libft.a . && ar q libft.a $(OBJS) && mv libft.a $(NAME)
 
 %.o: %.c
-	gcc $(GFLAGS) -I $(HEAD) -c $< -o $@
+	gcc -I $(HEAD) -I $(HEAD2) -c $< -o $@
 
 clean:
 	make clean -C libft

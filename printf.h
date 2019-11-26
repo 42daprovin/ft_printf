@@ -6,7 +6,7 @@
 /*   By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 05:48:43 by daprovin          #+#    #+#             */
-/*   Updated: 2019/11/24 20:13:54 by daprovin         ###   ########.fr       */
+/*   Updated: 2019/11/26 00:19:35 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ typedef struct	s_form
 int		ft_isnotthetype(char c);
 int		ft_isnothing(char c);
 void	ft_doingjust(int just, char c);
-void	ft_printchar(t_form *info, va_list args);
-void	ft_printstring(t_form *info, va_list args);
+int		ft_printchar(t_form *info, va_list args);
+int		ft_printstring(t_form *info, va_list args);
+void	ft_printstring2(char *s, int l, t_form *info);
+int		ft_printperc(t_form *info, va_list args);
 
 #endif
