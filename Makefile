@@ -6,16 +6,18 @@
 #    By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/19 21:13:16 by daprovin          #+#    #+#              #
-#    Updated: 2019/11/26 03:24:16 by daprovin         ###   ########.fr        #
+#    Updated: 2019/11/27 05:25:56 by daprovin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := libftprintf.a
 
 OBJS := \
-	ft_printf.o \
-	ft_printf_utils.o \
-	ft_printf_utils2.o \
+	src/ft_printf.o \
+	src/ft_printf_utils.o \
+	src/ft_printing_types.o \
+	src/ft_printing_type_int.o \
+	src/ft_printing_type_uint.o \
 
 GFLAGS := -Wall -Werror -Wextra
 HEAD := libft/

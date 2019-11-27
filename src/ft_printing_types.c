@@ -6,12 +6,12 @@
 /*   By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 20:10:42 by daprovin          #+#    #+#             */
-/*   Updated: 2019/11/26 00:19:42 by daprovin         ###   ########.fr       */
+/*   Updated: 2019/11/27 05:21:33 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "printf.h"
+#include "../libft/libft.h"
+#include "../printf.h"
 
 int		ft_printchar(t_form *info, va_list args)
 {
@@ -35,7 +35,7 @@ int		ft_printchar(t_form *info, va_list args)
 	return (1);
 }
 
-void	ft_printstring2(char *s, int l, t_form *info)
+static void	ft_printstring2(char *s, int l, t_form *info)
 {
 	int i;
 

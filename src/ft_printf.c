@@ -6,14 +6,14 @@
 /*   By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 21:01:17 by daprovin          #+#    #+#             */
-/*   Updated: 2019/11/26 05:58:30 by daprovin         ###   ########.fr       */
+/*   Updated: 2019/11/27 05:20:27 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 //#include <stdarg.h>
-#include "libft/libft.h"
-#include "printf.h"
+#include "../libft/libft.h"
+#include "../printf.h"
 /*
 static int	ft_isnotthetype(char c)
 {
@@ -169,7 +169,7 @@ static void	ft_printstring(t_form *info, va_list args)
 	}
 }
 */
-
+/*
 void	ft_printint2(int l, t_form *info, int n)
 {
 	int just;
@@ -253,7 +253,7 @@ int		ft_printint(t_form *info, va_list args)
 	ft_printint2(l, info, n);
 	return (ft_returnint(info, l, n));
 }
-
+*/
 /*
 int		ft_printperc(t_form *info, va_list args)
 {
@@ -289,7 +289,8 @@ static int	ft_printtype(t_form *info, va_list args)
 	else if (info->type == 'p'){}
 	else if ((info->type == 'd') || (info->type == 'i'))
 		i = ft_printint(info, args);
-	else if (info->type == 'u'){}
+	else if (info->type == 'u')
+		i = ft_printuint(info, args);
 	else if (info->type == 'x'){}
 	else if (info->type == 'X'){}
 	else if (info->type == '%')
@@ -302,9 +303,9 @@ int			ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		i;
+
 	t_form	info;
 	info.flag = 0;
-
 	va_start(args, format);
 	i = 0;
 	while (*format)
@@ -329,10 +330,11 @@ int			ft_printf(const char *format, ...)
 	va_end(args);
 	return (i);
 }
-
+/*
 int main()
 {
-	ft_printf("%10c", 'c');
+//	ft_printf("%05.1u\n", -45);
+	printf("%x", 11);
 }
-
+*/
 

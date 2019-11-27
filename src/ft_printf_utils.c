@@ -6,12 +6,12 @@
 /*   By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 14:44:14 by daprovin          #+#    #+#             */
-/*   Updated: 2019/11/26 00:15:51 by daprovin         ###   ########.fr       */
+/*   Updated: 2019/11/27 05:21:00 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "printf.h"
+#include "../libft/libft.h"
+#include "../printf.h"
 
 int		ft_isnotthetype(char c)
 {
