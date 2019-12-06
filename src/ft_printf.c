@@ -6,7 +6,7 @@
 /*   By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 21:01:17 by daprovin          #+#    #+#             */
-/*   Updated: 2019/11/27 05:20:27 by daprovin         ###   ########.fr       */
+/*   Updated: 2019/12/06 19:02:50 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -291,8 +291,8 @@ static int	ft_printtype(t_form *info, va_list args)
 		i = ft_printint(info, args);
 	else if (info->type == 'u')
 		i = ft_printuint(info, args);
-	else if (info->type == 'x'){}
-	else if (info->type == 'X'){}
+	else if (info->type == 'x' || info->type == 'X')
+		i = ft_printhex(info, args);
 	else if (info->type == '%')
 		i = ft_printperc(info, args);
 

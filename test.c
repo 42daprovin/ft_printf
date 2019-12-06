@@ -47,6 +47,6 @@ int main()
 	else
 		printf("%d", 0);
 */
-	printf("----->%010k");
+	printf("----->%x\n", (unsigned int)4294967295);
 	return (0);
 }

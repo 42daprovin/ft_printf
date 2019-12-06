@@ -6,7 +6,7 @@
 /*   By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 05:48:43 by daprovin          #+#    #+#             */
-/*   Updated: 2019/11/27 05:11:31 by daprovin         ###   ########.fr       */
+/*   Updated: 2019/12/06 19:06:06 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int		ft_printstring(t_form *info, va_list args);
 int		ft_printperc(t_form *info, va_list args);
 int		ft_printint(t_form *info, va_list args);
 int		ft_printuint(t_form *info, va_list args);
+int		ft_printhex(t_form *info, va_list args);
 int		ft_printf(const char *format, ...);
 
 #endif
