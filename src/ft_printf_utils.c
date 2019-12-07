@@ -6,7 +6,7 @@
 /*   By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 14:44:14 by daprovin          #+#    #+#             */
-/*   Updated: 2019/11/27 05:21:00 by daprovin         ###   ########.fr       */
+/*   Updated: 2019/12/07 04:20:44 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,10 @@ void	ft_doingjust(int just, char c)
 		ft_putchar_fd(c, 1);
 		i++;
 	}
+}
+
+void	ft_suport(int *i, const char **format)
+{
+	(*i)++;
+	(*format)++;
 }

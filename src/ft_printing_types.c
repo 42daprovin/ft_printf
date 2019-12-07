@@ -6,17 +6,17 @@
 /*   By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 20:10:42 by daprovin          #+#    #+#             */
-/*   Updated: 2019/11/27 05:21:33 by daprovin         ###   ########.fr       */
+/*   Updated: 2019/12/07 03:55:13 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "../printf.h"
 
-int		ft_printchar(t_form *info, va_list args)
+int			ft_printchar(t_form *info, va_list args)
 {
-	int just;
-	char c;
+	int		just;
+	char	c;
 
 	c = va_arg(args, int);
 	just = info->just - 1;
@@ -45,19 +45,19 @@ static void	ft_printstring2(char *s, int l, t_form *info)
 	ft_doingjust(info->just - l, ' ');
 }
 
-int		ft_printstring(t_form *info, va_list args)
+int			ft_printstring(t_form *info, va_list args)
 {
-	char *s;
-	char n[7];
-	int l;
-	int i;
+	char	*s;
+	char	n[7];
+	int		l;
+	int		i;
 
 	ft_memcpy(n, "(null)", 6);
 	s = va_arg(args, char*);
 	s = (s == NULL) ? n : s;
 	l = ft_strlen(s);
 	l = (info->flag & FLAG_DOT && info->prec < l) ? info->prec : l;
-	if(!(info->flag & FLAG_MIN))
+	if (!(info->flag & FLAG_MIN))
 	{
 		ft_doingjust(info->just - l, ' ');
 		i = 0;
@@ -71,7 +71,7 @@ int		ft_printstring(t_form *info, va_list args)
 	return (l);
 }
 
-int		ft_printperc(t_form *info, va_list args)
+int			ft_printperc(t_form *info, va_list args)
 {
 	if (info->flag & FLAG_MIN)
 	{

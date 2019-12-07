@@ -6,7 +6,7 @@
 #    By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/19 21:13:16 by daprovin          #+#    #+#              #
-#    Updated: 2019/11/27 05:25:56 by daprovin         ###   ########.fr        #
+#    Updated: 2019/12/07 05:37:25 by daprovin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ OBJS := \
 	src/ft_printing_types.o \
 	src/ft_printing_type_int.o \
 	src/ft_printing_type_uint.o \
+	src/ft_printing_type_hex.o \
+	src/ft_printing_type_point.o \
 
 GFLAGS := -Wall -Werror -Wextra
 HEAD := libft/

@@ -6,7 +6,7 @@
 /*   By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 23:22:50 by daprovin          #+#    #+#             */
-/*   Updated: 2019/11/27 05:21:08 by daprovin         ###   ########.fr       */
+/*   Updated: 2019/12/07 03:53:08 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ static void	ft_printflagzero(int n, unsigned int x, int just)
 
 static void	ft_printint2(int l, t_form *info, int n)
 {
-	int just;
-	unsigned int x;
+	int				just;
+	unsigned int	x;
 
 	x = n;
 	if (info->prec > l)
@@ -82,7 +82,7 @@ static int	ft_returnint(t_form *info, int l, int n)
 	return (r);
 }
 
-int		ft_printint(t_form *info, va_list args)
+int			ft_printint(t_form *info, va_list args)
 {
 	int n;
 	int aux;
@@ -105,4 +105,3 @@ int		ft_printint(t_form *info, va_list args)
 	ft_printint2(l, info, n);
 	return (ft_returnint(info, l, n));
 }
-

@@ -6,7 +6,7 @@
 /*   By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 03:06:05 by daprovin          #+#    #+#             */
-/*   Updated: 2019/11/27 05:21:18 by daprovin         ###   ########.fr       */
+/*   Updated: 2019/12/07 04:52:44 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ static int	ft_returnuint(t_form *info, int l)
 	return (r);
 }
 
-int		ft_printuint(t_form *info, va_list args)
+int			ft_printuint(t_form *info, va_list args)
 {
 	unsigned int	n;
-	int				aux;
+	unsigned int	aux;
 	int				l;
 
 	n = va_arg(args, unsigned int);
