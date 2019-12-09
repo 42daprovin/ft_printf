@@ -6,7 +6,7 @@
 /*   By: daprovin <daprovin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 21:01:17 by daprovin          #+#    #+#             */
-/*   Updated: 2019/12/07 05:24:12 by daprovin         ###   ########.fr       */
+/*   Updated: 2019/12/09 17:20:09 by daprovin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ int			ft_printf(const char *format, ...)
 			format = format + ft_makeinfo(format, &info, args);
 			i += ft_printtype(&info, args);
 		}
-		if (*format != '%')
+		if (*format != '%' && *format != '\0')
 		{
 			ft_putchar_fd(*format, 1);
 			if (*format)
